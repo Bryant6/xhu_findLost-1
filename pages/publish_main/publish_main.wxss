@@ -1,0 +1,7 @@
+.bg {
+  height: 1200rpx;
+  width: 100%;
+}
+.publish{
+  padding-top:450rpx;
+}

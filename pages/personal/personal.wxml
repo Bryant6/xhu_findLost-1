@@ -1,0 +1,70 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <open-data type="userAvatarUrl" class="img"></open-data>
+    <view class="text-xl margin-top-sm">游客
+    </view>
+    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">
+      <text class="cuIcon-my"></text>
+      </view>
+      <view class="margin-top-sm">
+         身份认证</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">0</view>
+      <view class="margin-top-sm">
+        消 息</view>
+    </view>
+  </view>
+
+
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink">
+        <text class="cuIcon-text text-pink"></text>
+        <text class="text-grey">发布历史</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="" hover-class="none">
+        <text class="cuIcon-settings text-red"></text>
+        <text class="text-grey">更换配色</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="../personal_/suggest/suggest" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">意见反馈</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-emoji text-red"></text>
+        <text class="text-grey">公众号</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-info text-cyan"></text>
+        <text class="text-grey">关于小程序</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">一键桌面</text>
+      </navigator>
+    </view>
+     <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-discover text-blue"></text>
+        <text class="text-grey">更新日志</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

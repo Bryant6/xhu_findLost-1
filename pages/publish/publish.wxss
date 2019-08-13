@@ -1,0 +1,11 @@
+/* pages/publish/publish.wxss */
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.contact-way{
+  margin-right:65rpx; 
+}
+.cu-btn{
+  width:100%;
+}
+

@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{false}}">
+  <view slot="backText">返回</view>
+  <view slot="content">发布</view>
+</cu-custom>
+
+<view class="bg-green light bg">
+  <view class="flex publish">
+    <view class="flex-sub   text-center">
+      <view class="cu-tag bg-green text-xl padding-lg radius" bindtap="findGoods">失物寻找</view>
+    </view>
+    <view class="flex-sub  text-center">
+       <view class="cu-tag bg-green text-xl padding-lg radius" bindtap="backGoods">失物归还</view>
+    </view>
+  </view>
+
+</view>
