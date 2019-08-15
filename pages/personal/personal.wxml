@@ -7,13 +7,16 @@
   </view>
 
   <view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right">
+
+    <view class="flex flex-sub flex-direction solid-right" bindtap="navchange_personInfo">
       <view class="text-xxl text-orange">
-      <text class="cuIcon-my"></text>
+        <text class="cuIcon-my"></text>
       </view>
       <view class="margin-top-sm">
-         身份认证</view>
+        个人信息</view>
     </view>
+
+
     <view class="flex flex-sub flex-direction solid-right">
       <view class="text-xxl text-blue">0</view>
       <view class="margin-top-sm">
@@ -59,7 +62,7 @@
         <text class="text-grey">一键桌面</text>
       </navigator>
     </view>
-     <view class="cu-item arrow">
+    <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/test/list" hover-class="none">
         <text class="cuIcon-discover text-blue"></text>
         <text class="text-grey">更新日志</text>

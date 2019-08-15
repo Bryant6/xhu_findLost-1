@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/main/main",
+    "pages/personal_/info/info",
     "pages/personal/personal",
     "pages/index/index",
     "pages/logs/logs",
@@ -24,17 +25,20 @@
       {
         "pagePath": "pages/main/main",
         "text": "动态",
-        "iconPath": "img/home.png"
+        "iconPath": "img/school1.png",
+        "selectedIconPath": "img/school.png"
       },
       {
         "pagePath": "pages/publish_main/publish_main",
         "text": "发布",
-        "iconPath": "img/publish.png"
+        "iconPath": "img/publish1.png",
+        "selectedIconPath": "img/publish.png"
       },
       {
         "pagePath": "pages/personal/personal",
         "text": "我的",
-        "iconPath": "img/login.png"
+        "iconPath": "img/mine1.png",
+        "selectedIconPath": "img/mine.png"
       }
     ]
   }

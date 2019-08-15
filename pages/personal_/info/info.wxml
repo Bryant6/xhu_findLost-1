@@ -1,0 +1,53 @@
+<!-- 个人信息 -->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人信息</view>
+</cu-custom>
+
+<view class="out">
+  <view class="bg-green light padding-lg in">
+    <view class="text-center text-bold title">温馨提示</view>
+    <view class="intent">
+      请您认真填写个人信息，认领失物需要个人信息的完善，信息完善后才可以查看失物发布者的联系方式
+    </view>
+  </view>
+
+  <!-- 信息填写 -->
+  <view class="padding-lg" style="margin-top:40rpx">
+    <!-- 姓名 -->
+    <view class="name flex input">
+      <view style="width:65rpx" class="flex align-center">
+        <image src="../../../img/name.png"></image>
+      </view>
+      <input placeholder="姓名"></input>
+    </view>
+
+    <!-- 学号 -->
+    <view class="name flex input">
+      <view style="width:65rpx" class="flex align-center">
+        <image src="../../../img/num.png"></image>
+      </view>
+      <input placeholder="学号"></input>
+    </view>
+    <!-- 学院 -->
+    <view class="name flex input">
+      <view style="width:65rpx" class="flex align-center">
+        <image src="../../../img/academy.png"></image>
+      </view>
+      <input placeholder="学院"></input>
+    </view>
+
+ <!-- 专业 -->
+    <view class="name flex input" style="margin-bottom:20rpx">
+      <view style="width:65rpx" class="flex align-center">
+        <image src="../../../img/major.png"></image>
+      </view>
+      <input placeholder="专业"></input>
+    </view>
+  </view>
+  
+  <!-- 保存 -->
+   <view class="text-center">
+   <button class="cu-btn round bg-blue light shadow"role="button" aria-disabled="false" style="width:180rpx">保 存</button>
+   </view>
+</view>
