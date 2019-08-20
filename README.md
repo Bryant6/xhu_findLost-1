@@ -85,11 +85,24 @@
 
 + 板块：我的/反馈
 
-+ 将用户反馈的信息上传到后台（无图片）
++ 概述：将用户反馈的信息上传到后台（无图片）
 + 传入的参数和数据类型：
   - suggest：用户建议（String）
   - contact：用户联系方式（String）
 + 返回数据：“yes”(成功上传)   “no” (失败上传)
 + 返回类型：String
-
- 
+##### 7.接口名字：getInfoById
++ 板块：校园动态
++ 概述：通过大类别和单条信息id查询整条信息内容
++ 大概逻辑：寻找失物和归还失物为两张表，先判断到底是什么大类别，再决定去哪张表找数据并返回数据
++ 传入的参数和数据类型
+  - id：单条信息的id（String）
+  - bigkind：大类别，是寻找失物还是归还失物（String）
++ 返回数据和数据类型：单个信息实体类
+  - goodsBigkind ：物品大类（String）
+  - goodsSmallkind ：物品小类（String）
+  - goodsPostscrit ：发布附言（String）
+  - goodsContact ：联系方式（String）
+  - goodsContact_way ：联系方式  qq weixn phone（String）
+  - goodsPhoto：图片链接（String）
+  - goodsPubtime：发布时间（String）
