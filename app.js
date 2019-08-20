@@ -65,6 +65,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    // url:'http://106.52.183.243:8080/xhu_findlost/'
     // url: 'http://mumucoder.free.idcfengye.com/'
     url: 'http://localhost:8080/',
     // url: 'http://xiaobai.free.idcfengye.com/'

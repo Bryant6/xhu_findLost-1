@@ -33,7 +33,7 @@ Page({
   data: {
     CustomBar: app.globalData.CustomBar,
     dataList: null, //前台渲染数据
-    selected: true, //true 为寻找失物   false认领失物
+    selected: true, //true 为寻找失物   false归还失物
     bigKind: '全部', //大类
     cardCur: 0, //轮番图
     swiperList: [{
@@ -102,7 +102,7 @@ Page({
   //下拉触顶刷新数据
   onPullDownRefresh: function() {
     wx.showLoading({
-      title: '刷新中',
+      title: '获取最新信息',
     })
     console.log("我已经到顶了");
     var that = this;
@@ -138,7 +138,7 @@ Page({
         }
       })
     } else {
-      //认领失物
+      //归还失物
       wx.request({
         url: url + 'findOwnerSort',
         data: {
@@ -266,11 +266,11 @@ Page({
       }
     }
   },
-  //切换认领失物
+  //切换归还失物
   selected_btn2: function() {
     if (this.data.selected) {
       let kind = this.data.bigKind;
-      console.log(kind + "切换到认领失物");
+      console.log(kind + "切换到归还失物");
       //按照大类读取缓存
       try {
         let value = wx.getStorageSync(kind)
@@ -385,14 +385,11 @@ Page({
       console.log(e)
     }
   },
-
-  //触底刷新
-  scrolltoBottom: function() {
-    
-  },
-  //触顶刷新
-  scrolltoTop: function() {
-    
-
+  info_detail:function(e){
+    let id=e.currentTarget.dataset.id;
+    let bigkind=e.currentTarget.dataset.bigkind;
+    wx.navigateTo({
+      url: '/pages/main/single/single?id='+id+'&bigkind='+bigkind,
+    })
   }
 })

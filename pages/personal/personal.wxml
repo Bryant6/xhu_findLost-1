@@ -32,12 +32,14 @@
         <text class="text-grey">发布历史</text>
       </view>
     </view>
-    <view class="cu-item arrow">
+
+    <!-- <view class="cu-item arrow">
       <navigator class="content" url="" hover-class="none">
         <text class="cuIcon-settings text-red"></text>
         <text class="text-grey">更换配色</text>
       </navigator>
-    </view>
+    </view> -->
+
     <view class="cu-item arrow">
       <navigator class="content" url="../personal_/suggest/suggest" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
@@ -56,12 +58,8 @@
         <text class="text-grey">关于小程序</text>
       </button>
     </view>
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
-        <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">一键桌面</text>
-      </navigator>
-    </view>
+   
+   
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/test/list" hover-class="none">
         <text class="cuIcon-discover text-blue"></text>

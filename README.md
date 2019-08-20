@@ -75,9 +75,9 @@
 
 + 概述：将用户反馈的信息上传到后台（有图片）
 + 传入的参数和数据类型：
-      - suggest：用户建议（String）
-      - contact：用户联系方式（String）
-      - file：一张图片文件（File）
+  - suggest：用户建议（String）
+  - contact：用户联系方式（String）
+  - file：一张图片文件（File）
 + 返回数据：“yes”(成功上传)   “no” (失败上传)
 + 返回类型：String
 
