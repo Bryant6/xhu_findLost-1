@@ -8,7 +8,7 @@ Page({
    */
   data: {
     singleData: null, //单个数据
-    url: 'http://www.xhufindlost.com/'
+    url: 'https://www.xhufindlost.com/'
   },
 
   /**
