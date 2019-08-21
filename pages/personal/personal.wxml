@@ -61,11 +61,10 @@
    
    
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <view class="content" hover-class="none">
         <text class="cuIcon-discover text-blue"></text>
         <text class="text-grey">更新日志</text>
-      </navigator>
+      </view>
     </view>
   </view>
-  <view class="cu-tabbar-height"></view>
 </scroll-view>

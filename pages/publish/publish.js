@@ -1,6 +1,24 @@
 // pages/publish/publish.js
 const app = getApp();
 const url = app.globalData.url;
+
+function success_upload() {
+  wx.showToast({
+    title: '上传成功',
+    icon: 'success',
+    duration: 2000,
+    success() {
+      setTimeout(
+        function() {
+          wx.navigateBack({
+            delta: 1
+          })
+        },
+        2000
+      )
+    }
+  })
+}
 Page({
   /**
    * 页面的初始数据
@@ -15,9 +33,9 @@ Page({
     img_select: false, //是否选择了图片
     contact_select: [true, false, false],
     contact_way: 'qq号',
-    goods_contact: null, //联系方式
-    goods_postscrit: null, //附言
-    publish_category: null, //发布种类？失物寻找：失物归还
+    goods_contact: "", //联系方式
+    goods_postscrit: "", //附言
+    publish_category: "", //发布种类？失物寻找：失物归还
   },
   /**
    * 生命周期函数--监听页面加载
@@ -90,8 +108,8 @@ Page({
   },
   DelImg(e) {
     wx.showModal({
-      title: '召唤师',
-      content: '确定要删除这段回忆吗？',
+      title: '小可爱',
+      content: '确定要删除这段图片吗？',
       cancelText: '再看看',
       confirmText: '再见',
       success: res => {
@@ -125,11 +143,24 @@ Page({
   },
   //发布
   submit: function() {
-    //写死静态数据 测试
-    let userId = "123";
-    let userName = "wang";
-
     var _this = this;
+    //判断是否填好信息
+    if (this.data.goods_postscrit == "" || this.data.goods_contact == "") {
+      wx.showToast({
+        title: '请填完信息',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+    if (!this.data.img_select && this.data.publish_category == '失物归还') {
+      wx.showToast({
+        title: '请上传图片',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
 
     //如果选择了图片
     if (_this.data.img_select) {
@@ -142,8 +173,6 @@ Page({
           "Content-Type": "multipart/form-data"
         },
         formData: {
-          userId: userId,
-          userName: userName,
           goodsBigkind: _this.data.multiArray[0][_this.data.multiIndex[0]], //大类
           goodsSmallkind: _this.data.multiArray[1][_this.data.multiIndex[1]], //小类
           goodsPostscrit: _this.data.goods_postscrit, //附言
@@ -154,11 +183,7 @@ Page({
         success(res) {
           let data = res.data
           if (data == "yes") {
-            wx.showToast({
-              title: '上传成功',
-              icon: 'success',
-              duration: 2000
-            })
+            success_upload();
           } else {
             wx.showToast({
               title: '上传失败',
@@ -175,13 +200,11 @@ Page({
           })
         }
       })
-    }else{
+    } else {
       //没有选择图片
       wx.request({
-        url: url +'publish/findGoodsSubmitNoImg', 
+        url: url + 'publish/findGoodsSubmitNoImg',
         data: {
-          userId: userId,
-          userName: userName,
           goodsBigkind: _this.data.multiArray[0][_this.data.multiIndex[0]], //大类
           goodsSmallkind: _this.data.multiArray[1][_this.data.multiIndex[1]], //小类
           goodsPostscrit: _this.data.goods_postscrit, //附言
@@ -195,11 +218,7 @@ Page({
         success(res) {
           let data = res.data
           if (data == "yes") {
-            wx.showToast({
-              title: '上传成功',
-              icon: 'success',
-              duration: 2000
-            })
+            success_upload();
           } else {
             wx.showToast({
               title: '上传失败',
@@ -216,7 +235,7 @@ Page({
           })
         }
       })
-      
+
     }
 
   }

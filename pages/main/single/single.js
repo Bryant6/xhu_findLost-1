@@ -16,6 +16,7 @@ Page({
   onLoad: function(options) {
     let id = options.id;
     let bigkind = options.bigkind;
+    console.log(id)
     var that = this;
     wx.request({
       url: url + 'getInfoById',

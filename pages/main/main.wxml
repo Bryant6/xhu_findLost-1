@@ -10,7 +10,7 @@
       <view class="cu-tag line-green">{{bigKind}}</view>
       <text class="cuIcon-unfold  text-green"></text>
     </view>
-    <view bindtap="selected_btn2" class="{{!selected?'select':''}} text-green text-lg flex-treble text-center padding-sm">认 领 失 物</view>
+    <view bindtap="selected_btn2" class="{{!selected?'select':''}} text-green text-lg flex-treble text-center padding-sm">失 物 归 还</view>
   </view>
 
   <!-- 轮番图 -->

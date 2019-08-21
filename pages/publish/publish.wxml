@@ -27,7 +27,7 @@
 
 <view class="cu-bar bg-white margin-top-sm">
   <view class="action">
-    图片上传
+    图片上传{{publish_category=='失物寻找'?'(选填)':''}}
   </view>
   <view class="action">
      {{img_select?1:0}}/1

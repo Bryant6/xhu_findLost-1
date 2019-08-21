@@ -386,8 +386,10 @@ Page({
     }
   },
   info_detail:function(e){
+
     let id=e.currentTarget.dataset.id;
     let bigkind=e.currentTarget.dataset.bigkind;
+    console.log(e)
     wx.navigateTo({
       url: '/pages/main/single/single?id='+id+'&bigkind='+bigkind,
     })
