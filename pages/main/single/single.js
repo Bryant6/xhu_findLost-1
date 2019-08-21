@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    singleData: null //单个数据
+    singleData: null, //单个数据
+    url: 'http://www.xhufindlost.com/'
   },
 
   /**

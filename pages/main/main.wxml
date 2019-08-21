@@ -10,7 +10,7 @@
       <view class="cu-tag line-green">{{bigKind}}</view>
       <text class="cuIcon-unfold  text-green"></text>
     </view>
-    <view bindtap="selected_btn2" class="{{!selected?'select':''}} text-green text-lg flex-treble text-center padding-sm">失 物 归 还</view>
+    <view bindtap="selected_btn2" class="{{!selected?'select':''}} text-green text-lg flex-treble text-center padding-sm">归 还 失 物</view>
   </view>
 
   <!-- 轮番图 -->
@@ -28,8 +28,8 @@
     <view class="padding-sm" wx:for="{{dataList}}">
       <view class="radius  content-mine bg-white  padding-sm shadow-warp" data-id="{{item.goodsId}}" data-bigkind="{{selected}}" bindtap="info_detail">
         <view class="info-img">
-          <open-data type="userAvatarUrl"></open-data>
-          <!-- <image src="../../img/platform10.png"></image> -->
+          <!-- <open-data type="userAvatarUrl"></open-data> -->
+          <image src="{{url}}{{item.goodsPhoto}}"></image>
         </view>
         <view class="margin-top-sm flex">
           <view class="text-xl flex-sub padding-right-sm">{{item.goodsSmallkind}}</view>

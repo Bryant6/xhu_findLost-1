@@ -4,7 +4,7 @@
 </cu-custom>
 <view class="contain">
   <view class="photo shadow-warp">
-    <image src="../../../img/sport.jpg" class=""></image>
+    <image src="{{url}}{{singleData.goodsPhoto}}" class=""></image>
   </view>
 
 
