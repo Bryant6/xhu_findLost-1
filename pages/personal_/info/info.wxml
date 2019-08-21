@@ -34,20 +34,24 @@
       <view style="width:65rpx" class="flex align-center">
         <image src="../../../img/academy.png"></image>
       </view>
-      <input placeholder="学院"></input>
+      <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+        <input disabled="disabled" placeholder="学院" value="{{picker[index]}}"></input>
+      </picker>
     </view>
 
- <!-- 专业 -->
+    <!-- 专业 -->
     <view class="name flex input" style="margin-bottom:20rpx">
       <view style="width:65rpx" class="flex align-center">
         <image src="../../../img/major.png"></image>
       </view>
-      <input placeholder="专业"></input>
+      <picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
+      <input placeholder="专业" disabled="disabled"  value="{{picker1[index1]}}"></input>
+      </picker>
     </view>
   </view>
-  
+
   <!-- 保存 -->
-   <view class="text-center">
-   <button class="cu-btn round bg-blue light shadow"role="button" aria-disabled="false" style="width:180rpx">保 存</button>
-   </view>
+  <view class="text-center">
+    <button class="cu-btn round bg-blue light shadow" role="button" aria-disabled="false" style="width:180rpx">保 存</button>
+  </view>
 </view>
