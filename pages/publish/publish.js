@@ -25,8 +25,8 @@ Page({
    */
   data: {
     multiArray: [
-      ['卡类', '电子类', "书籍"],
-      ['校园卡', '饭卡', '身份证', '游泳卡', '银行卡']
+      ['卡类', '电子', "生活用品"],
+      ['校园卡', '身份证', '游泳卡', '银行卡']
     ],
     multiIndex: [0, 0],
     imgList: [''], //图片链接
@@ -76,13 +76,13 @@ Page({
       case 0:
         switch (data.multiIndex[0]) {
           case 0:
-            data.multiArray[1] = ['校园卡', '饭卡', '身份证', '游泳卡', '银行卡'];
+            data.multiArray[1] = ['校园卡', '身份证', '游泳卡', '银行卡'];
             break;
           case 1:
-            data.multiArray[1] = ['手机', '耳机', 'U盘'];
+            data.multiArray[1] = ['手机', '耳机', 'U盘','手表'];
             break;
           case 2:
-            data.multiArray[1] = ['教材书', '课外书', '资料']
+            data.multiArray[1] = ['伞', '水杯', '书包','帽子']
         }
         data.multiIndex[1] = 0;
     }

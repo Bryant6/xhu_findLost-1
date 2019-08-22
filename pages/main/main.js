@@ -32,7 +32,7 @@ Page({
    */
   data: {
     CustomBar: app.globalData.CustomBar,
-    url:'https://www.xhufindlost.com/',
+    url:'https://www.xhufindlost.com:80/',
     dataList: null, //前台渲染数据
     selected: true, //true 为寻找失物   false归还失物
     bigKind: '全部', //大类

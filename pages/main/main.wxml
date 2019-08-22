@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{false}}">
   <view slot="backText">返回</view>
   <view slot="content">动态</view>
 </cu-custom>
@@ -39,7 +39,7 @@
         </view>
         <view class="margin-top-sm flex  padding-left-sm padding-right-sm">
           <view class="cu-item">
-            <text class="cuIcon-time xl text-gray"></text>
+            <text class="cuIcon-time text-lg text-gray"></text>
           </view>
           <view class="margin-left-sm">
             {{item.goodsPubtime}}
