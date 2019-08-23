@@ -46,19 +46,20 @@
         <text class="text-grey">意见反馈</text>
       </navigator>
     </view>
+
     <view class="cu-item arrow">
       <view class="content" bindtap="showQrcode">
         <text class="cuIcon-emoji text-red"></text>
         <text class="text-grey">公众号</text>
       </view>
     </view>
+
     <view class="cu-item arrow">
-      <button class="cu-btn content" open-type="feedback">
+      <button class="cu-btn content">
         <text class="cuIcon-info text-cyan"></text>
         <text class="text-grey">关于小程序</text>
       </button>
     </view>
-   
    
     <view class="cu-item arrow">
       <view class="content" hover-class="none">

@@ -39,7 +39,7 @@
     </view>
 
     <!-- 联系方式 -->
-    <view class="margin-top-lg flex align-center">
+    <view class="margin-top-lg flex align-center margin-bottom-lg">
       <view class="margin-right-lg">
         <image src="../../../img/contact.png"></image>
       </view>

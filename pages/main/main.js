@@ -25,6 +25,59 @@ function Toast() {
     duration: 1400
   })
 }
+
+//时间过滤 列表页面不显示年份
+let date = new Date();
+let year = date.getFullYear();
+let month = date.getMonth() + 1;
+if (month < 10) {
+  month = '0' + month;
+}
+//单个时间过滤
+function timeFilter(time) {
+  let yearTake = time.substr(0, 4);
+  let monthTake = time.substr(5, 2);
+  let dayTake = time[9];
+  if (time[8] != '0') {
+    dayTake = time.substr(8, 2);
+  }
+  let timeFinal = "";
+  if (monthTake == month) {
+    let day = date.getDate();
+
+    if (day == dayTake) {
+      timeFinal = "今天";
+    } else if (day - dayTake == 1) {
+      timeFinal = "昨天";
+    } else if (day - dayTake == 2) {
+      timeFinal = "前天";
+    } else {
+      if (monthTake[0] == '0') {
+        timeFinal = monthTake[1] + "月" + dayTake + "日"
+      } else {
+        timeFinal = monthTake + "月" + dayTake + "日"
+      }
+    }
+  } else {
+    if (monthTake[0] == '0') {
+      timeFinal = monthTake[1] + "月" + dayTake + "日"
+    } else {
+      timeFinal = monthTake + "月" + dayTake + "日"
+    }
+  }
+  return timeFinal+time.substr(11,5);
+}
+//数组时间过滤
+function timeGroupFilter(timeGroup){
+  let length = timeGroup.data.length;
+  for (let i = 0; i <length;i++){
+    timeGroup.data[i].goodsPubtime = timeFilter(timeGroup.data[i].goodsPubtime);
+  }
+  return timeGroup;
+}
+
+
+
 Page({
 
   /**
@@ -32,7 +85,7 @@ Page({
    */
   data: {
     CustomBar: app.globalData.CustomBar,
-    url:'https://www.xhufindlost.com:80/',
+    url: 'https://www.xhufindlost.com:80/',
     dataList: null, //前台渲染数据
     selected: true, //true 为寻找失物   false归还失物
     bigKind: '全部', //大类
@@ -83,9 +136,14 @@ Page({
       createPromise("findOwnerSort", 0, '全部')
     ]).then(function(res) {
       let [data1, data2] = res;
+      //处理data1的时间过滤
+      data1=timeGroupFilter(data1);
       that.setData({
         dataList: data1.data
       })
+      //处理data2的时间过滤
+      data2 = timeGroupFilter(data2);
+
       wx.hideLoading();
       let json_obj = {
         "findOwnerSort": data2.data,
@@ -117,7 +175,7 @@ Page({
           page: 0,
           kind: kind
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res.data)
           that.setData({
             dataList: res.data
@@ -146,7 +204,7 @@ Page({
           page: 0,
           kind: kind
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res.data)
           that.setData({
             dataList: res.data
@@ -171,7 +229,7 @@ Page({
 
   },
   //上拉触底刷新数据
-  onReachBottom:function(){
+  onReachBottom: function() {
     wx.showLoading({
       title: '加载中',
     })
@@ -188,14 +246,19 @@ Page({
             page: value.findGoodsSortPage,
             kind: kind
           },
-          success: function (res) {
+          success: function(res) {
             if (res.data.length == 0) {
               Toast();
               return;
             }
+
+            //时间过滤
+            res=timeGroupFilter(res);
+            
             console.log("更新数据");
             let newData = value.findGoodsSort.concat(res.data);
             console.log(newData);
+
             that.setData({
               dataList: newData
             })
@@ -220,11 +283,13 @@ Page({
             page: value.findOwnerSortPage,
             kind: kind
           },
-          success: function (res) {
+          success: function(res) {
             if (res.data.length == 0) {
               Toast();
               return;
             }
+            //时间过滤
+            res = timeGroupFilter(res);
             console.log("更新数据");
             let newData = value.findOwnerSort.concat(res.data);
             console.log(newData);
@@ -360,6 +425,10 @@ Page({
           createPromise("findOwnerSort", 0, that.data.bigKind)
         ]).then(function(res) {
           let [data1, data2] = res;
+          //时间过滤
+          data1=timeGroupFilter(data1);
+          data2=timeGroupFilter(data2);
+
           if (that.data.selected) {
             that.setData({
               dataList: data1.data
@@ -386,13 +455,13 @@ Page({
       console.log(e)
     }
   },
-  info_detail:function(e){
+  info_detail: function(e) {
 
-    let id=e.currentTarget.dataset.id;
-    let bigkind=e.currentTarget.dataset.bigkind;
+    let id = e.currentTarget.dataset.id;
+    let bigkind = e.currentTarget.dataset.bigkind;
     console.log(e)
     wx.navigateTo({
-      url: '/pages/main/single/single?id='+id+'&bigkind='+bigkind,
+      url: '/pages/main/single/single?id=' + id + '&bigkind=' + bigkind,
     })
   }
 })

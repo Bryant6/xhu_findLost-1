@@ -32,9 +32,9 @@ Page({
     imgList: [''], //图片链接
     img_select: false, //是否选择了图片
     contact_select: [true, false, false],
-    contact_way: 'qq号',
+    contact_way: '扣扣',
     goods_contact: "", //联系方式
-    goods_postscrit: "", //附言
+    goods_postscript: "", //附言
     publish_category: "", //发布种类？失物寻找：失物归还
   },
   /**
@@ -53,7 +53,7 @@ Page({
     }
   },
   postscrptInput: function(e) {
-    this.data.goods_postscrit = e.detail.value;
+    this.data.goods_postscript = e.detail.value;
   },
   contactInput: function(e) {
     this.data.goods_contact = e.detail.value;
@@ -127,17 +127,17 @@ Page({
     if (id == "qq") {
       this.setData({
         contact_select: [true, false, false],
-        contact_way: 'qq号'
+        contact_way: '扣扣'
       })
     } else if (id == "weixin") {
       this.setData({
         contact_select: [false, true, false],
-        contact_way: '微信号'
+        contact_way: '微信'
       })
     } else {
       this.setData({
         contact_select: [false, false, true],
-        contact_way: '手机号'
+        contact_way: '手机'
       })
     }
   },
@@ -145,7 +145,7 @@ Page({
   submit: function() {
     var _this = this;
     //判断是否填好信息
-    if (this.data.goods_postscrit == "" || this.data.goods_contact == "") {
+    if (this.data.goods_postscript == "" || this.data.goods_contact == "") {
       wx.showToast({
         title: '请填完信息',
         icon: 'none',
@@ -175,9 +175,9 @@ Page({
         formData: {
           goodsBigkind: _this.data.multiArray[0][_this.data.multiIndex[0]], //大类
           goodsSmallkind: _this.data.multiArray[1][_this.data.multiIndex[1]], //小类
-          goodsPostscrit: _this.data.goods_postscrit, //附言
+          goodsPostscript: _this.data.goods_postscript, //附言
           goodsContact: _this.data.goods_contact, //联系方式
-          goodsContact_way: _this.data.contact_way, //联系方式 qq weixin phone
+          goodsContactWay: _this.data.contact_way, //联系方式 qq weixin phone
           publishCategory: _this.data.publish_category //失物寻找？失物归还
         },
         success(res) {
@@ -207,9 +207,9 @@ Page({
         data: {
           goodsBigkind: _this.data.multiArray[0][_this.data.multiIndex[0]], //大类
           goodsSmallkind: _this.data.multiArray[1][_this.data.multiIndex[1]], //小类
-          goodsPostscrit: _this.data.goods_postscrit, //附言
+          goodsPostscript: _this.data.goods_postscript, //附言
           goodsContact: _this.data.goods_contact, //联系方式
-          goodsContact_way: _this.data.contact_way, //联系方式 qq weixin phone
+          goodsContactWay: _this.data.contact_way, //联系方式 qq weixin phone
           publishCategory: _this.data.publish_category //失物寻找？失物归还
         },
         header: {
