@@ -106,3 +106,8 @@
   - goodsContact_way ：联系方式  qq weixn phone（String）
   - goodsPhoto：图片链接（String）
   - goodsPubtime：发布时间（String）
+##### 8.接口名字：personal/stuInfo
++ 板块：我的/个人信息
++ 概述：学生填取个人信息，将数据保存在后台
++ 传入的参数和数据类型
+  - 

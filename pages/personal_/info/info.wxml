@@ -19,7 +19,7 @@
       <view style="width:65rpx" class="flex align-center">
         <image src="../../../img/name.png"></image>
       </view>
-      <input placeholder="姓名"></input>
+      <input placeholder="姓名" bindinput="nameInput"></input>
     </view>
 
     <!-- 学号 -->
@@ -27,15 +27,26 @@
       <view style="width:65rpx" class="flex align-center">
         <image src="../../../img/num.png"></image>
       </view>
-      <input placeholder="学号"></input>
+      <input bindinput="numInput" placeholder="学号"></input>
     </view>
+
+ <!-- 年级 -->
+    <view class="name flex input">
+      <view style="width:65rpx" class="flex align-center">
+        <image src="../../../img/class.png"></image>
+      </view>
+      <picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
+        <input disabled="disabled" placeholder="年级" value="{{picker1[index1]}}"></input>
+      </picker>
+    </view>
+
     <!-- 学院 -->
     <view class="name flex input">
       <view style="width:65rpx" class="flex align-center">
         <image src="../../../img/academy.png"></image>
       </view>
       <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
-        <input disabled="disabled" placeholder="学院" value="{{picker[index]}}"></input>
+        <input  disabled="disabled" placeholder="学院" value="{{picker[index]}}"></input>
       </picker>
     </view>
 
@@ -44,14 +55,12 @@
       <view style="width:65rpx" class="flex align-center">
         <image src="../../../img/major.png"></image>
       </view>
-      <picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
-      <input placeholder="专业" disabled="disabled"  value="{{picker1[index1]}}"></input>
-      </picker>
+      <input bindinput="majorInput" placeholder="专业"></input>
     </view>
   </view>
 
   <!-- 保存 -->
   <view class="text-center">
-    <button class="cu-btn round bg-blue light shadow" role="button" aria-disabled="false" style="width:180rpx">保 存</button>
+    <button class="cu-btn round bg-blue light shadow" role="button" aria-disabled="false" style="width:180rpx" bindtap="submit">保 存</button>
   </view>
 </view>
