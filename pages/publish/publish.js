@@ -181,7 +181,7 @@ Page({
         filePath: _this.data.imgList[0],
         name: 'file',
         header: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "multipart/form-data"
         },
         formData: {
           goodsBigkind: _this.data.multiArray[0][_this.data.multiIndex[0]], //大类
