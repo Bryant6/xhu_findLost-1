@@ -162,6 +162,17 @@ Page({
       return;
     }
 
+    //取出openid
+    let openid = "";
+    try {
+      openid = wx.getStorageSync("openid");
+    } catch (e) {
+      wx.showToast({
+        title: '系统故障1',
+        icon: 'none'
+      })
+    }
+
     //如果选择了图片
     if (_this.data.img_select) {
       //上传图片和基本信息
@@ -170,7 +181,7 @@ Page({
         filePath: _this.data.imgList[0],
         name: 'file',
         header: {
-          "Content-Type": "multipart/form-data"
+          "Content-Type": "application/x-www-form-urlencoded"
         },
         formData: {
           goodsBigkind: _this.data.multiArray[0][_this.data.multiIndex[0]], //大类
@@ -178,7 +189,8 @@ Page({
           goodsPostscript: _this.data.goods_postscript, //附言
           goodsContact: _this.data.goods_contact, //联系方式
           goodsContactWay: _this.data.contact_way, //联系方式 qq weixin phone
-          publishCategory: _this.data.publish_category //失物寻找？失物归还
+          publishCategory: _this.data.publish_category, //失物寻找？失物归还
+          openid:openid
         },
         success(res) {
           let data = res.data
@@ -204,16 +216,18 @@ Page({
       //没有选择图片
       wx.request({
         url: url + 'publish/findGoodsSubmitNoImg',
+        method:'POST',
         data: {
           goodsBigkind: _this.data.multiArray[0][_this.data.multiIndex[0]], //大类
           goodsSmallkind: _this.data.multiArray[1][_this.data.multiIndex[1]], //小类
           goodsPostscript: _this.data.goods_postscript, //附言
           goodsContact: _this.data.goods_contact, //联系方式
           goodsContactWay: _this.data.contact_way, //联系方式 qq weixin phone
-          publishCategory: _this.data.publish_category //失物寻找？失物归还
+          publishCategory: _this.data.publish_category, //失物寻找？失物归还
+          openid: openid
         },
         header: {
-          'content-type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded'
         },
         success(res) {
           let data = res.data

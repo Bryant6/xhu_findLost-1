@@ -2,7 +2,6 @@
 const app = getApp();
 const url = app.globalData.url;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -57,7 +56,18 @@ Page({
     wx.showLoading({
       title: '保存中',
     })
-    console.log(that.data.index)
+
+    //取出openid
+    let openid="";
+    try {
+      openid = wx.getStorageSync("openid");
+    }catch(e){
+      wx.showToast({
+        title: '系统故障1',
+        icon: 'none'
+      })
+    }
+    
     //上传信息
     wx.request({
       url: url + 'personal/stuInfo',
@@ -67,7 +77,8 @@ Page({
         stuNum: that.data.stuNum,
         stuClass: that.data.picker1[that.data.index1],
         stuAcademy: that.data.picker[that.data.index],
-        stuMajor: that.data.stuMajor
+        stuMajor: that.data.stuMajor,
+        openid:openid
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
