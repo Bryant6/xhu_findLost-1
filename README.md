@@ -108,6 +108,24 @@
   - goodsPubtime：发布时间（String）
 ##### 8.接口名字：personal/stuInfo
 + 板块：我的/个人信息
+
 + 概述：学生填取个人信息，将数据保存在后台
+
++ 网络请求：POST
+
 + 传入的参数和数据类型
-  - 
+  - stuName：学生名字（String）
+
+  - stuNum：学生学号（String）
+
+  - stuClass：学生年级（String）
+
+  - stuAcademy ：学生学院（String）
+
+  - stuMajor ：学生专业（String）
+
++ 返回数据和数据类型：
+  - 成功返回-> yes(String)
+  - 失败返回->no(String)
+
+    

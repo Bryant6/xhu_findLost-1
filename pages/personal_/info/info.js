@@ -44,9 +44,9 @@ Page({
   },
   //提交
   submit: function() {
-    var that=this;
+    var that = this;
     //判断是否为空
-    if (this.data.stuName == '' || this.data.stuNum == '' || this.data.stuMajor == '' || index == -1 || index1 == -1) {
+    if (this.data.stuName == '' || this.data.stuNum == '' || this.data.stuMajor == '' || this.data.index == -1 || this.data.index1 == -1) {
       wx.showToast({
         title: '请填取完整信息',
         icon: 'none',
@@ -57,33 +57,34 @@ Page({
     wx.showLoading({
       title: '保存中',
     })
+    console.log(that.data.index)
     //上传信息
     wx.request({
-      url: url + 'stuInfo',
+      url: url + 'personal/stuInfo',
       method: "POST",
       data: {
-         stuName:that.data.stuName,
-         stuNum:that.data.stuNum,
-         stuClass:that.data.picker1[that.data.index1],
-         stuAcademy:that.data.picker[that.data.index],
-         stuMajor:that.data.stuMajor
+        stuName: that.data.stuName,
+        stuNum: that.data.stuNum,
+        stuClass: that.data.picker1[that.data.index1],
+        stuAcademy: that.data.picker[that.data.index],
+        stuMajor: that.data.stuMajor
       },
       header: {
-        'content-type': 'application/x-www-form-urlencoded' 
+        'content-type': 'application/x-www-form-urlencoded'
       },
       success(res) {
-        if(res.data=='yes'){
+        if (res.data == 'yes') {
           wx.showToast({
             title: '保存成功'
           })
-        }else{
+        } else {
           wx.showToast({
             title: '系统故障',
-            icon:'none'      
+            icon: 'none'
           })
         }
       },
-      complete(){
+      complete() {
         wx.hideLoading();
       }
     })

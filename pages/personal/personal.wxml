@@ -1,7 +1,8 @@
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
     <open-data type="userAvatarUrl" class="img"></open-data>
-    <view class="text-xl margin-top-sm">游客
+    <view class="text-xl margin-top-sm">
+    <open-data type="userNickName"></open-data>
     </view>
     <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
@@ -23,7 +24,6 @@
         消 息</view>
     </view>
   </view>
-
 
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
@@ -62,10 +62,10 @@
     </view>
    
     <view class="cu-item arrow">
-      <view class="content" hover-class="none">
+      <navigator url="../personal_/log/log" class="content" hover-class="none">
         <text class="cuIcon-discover text-blue"></text>
         <text class="text-grey">更新日志</text>
-      </view>
+      </navigator>
     </view>
   </view>
 </scroll-view>
